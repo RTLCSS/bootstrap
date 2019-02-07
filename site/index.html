@@ -29,34 +29,16 @@ layout: home
   </div>
 </main>
 
-<div class="masthead-followup row m-0 border border-white">
-  <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
-    <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
-    {% include icons/import.svg width="32" height="32" class="text-primary mb-2" %}
-    <h3>Installation</h3>
-    <p>Include Bootstrap's source Sass and JavaScript files via npm, Composer or Meteor. Package managed installs don't include documentation, but do include our build system and readme.</p>
-
-{% highlight sh %}
-npm install bootstrap
-{% endhighlight %}
-
-{% highlight sh %}
-gem install bootstrap -v {{ site.current_ruby_version }}
-{% endhighlight %}
-
-    <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download/">Read installation docs</a>
-  </div>
-
-  <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
+<div class="masthead-followup row m-0 border border-white justify-content-center">
+  <div class="col-12 p-3 p-md-5 bg-light border border-white">
     <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
     {% include icons/download.svg width="32" height="32" class="text-primary mb-2" %}
-    <h3>BootstrapCDN</h3>
-    <p>When you only need to include Bootstrap's compiled CSS or JS, you can use <a href="https://www.bootstrapcdn.com/">BootstrapCDN</a>.</p>
+    <h3>RTLCSS CDN</h3>
+    <p>When you only need to include Bootstrap's RTL compiled CSS or JS, you can use <a href="https://rtlcss.com/cdn/css-frameworks/bootstrap/">RTLCSS CDN</a>.</p>
 
 <h5>CSS only</h5>
 {% highlight html %}
-<link rel="stylesheet" href="{{ site.cdn.css }}" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ site.cdn.rtlcss }}" integrity="{{ site.cdn.rtlcss_hash }}" crossorigin="anonymous">
 {% endhighlight %}
 
 <h5>JS, Popper.js, and jQuery</h5>
@@ -69,7 +51,7 @@ gem install bootstrap -v {{ site.current_ruby_version }}
     <a class="btn btn-outline-primary" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/layout/overview/">Explore the docs</a>
   </div>
 
-  <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
+  <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white d-none">
     <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
     {% include icons/lightning.svg width="32" height="32" class="text-primary mb-2" %}
     <h3>Official Themes</h3>

@@ -66,6 +66,8 @@
    */
 
   var Tooltip = function ($$$1) {
+    var _AttachmentMap;
+
     /**
      * ------------------------------------------------------------------------
      * Constants
@@ -78,6 +80,7 @@
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var CLASS_PREFIX = 'bs-tooltip';
     var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
+    var RTL = document.documentElement.dir === 'rtl';
     var DefaultType = {
       animation: 'boolean',
       template: 'string',
@@ -92,13 +95,10 @@
       fallbackPlacement: '(string|array)',
       boundary: '(string|element)'
     };
-    var AttachmentMap = {
+    var AttachmentMap = (_AttachmentMap = {
       AUTO: 'auto',
-      TOP: 'top',
-      RIGHT: 'right',
-      BOTTOM: 'bottom',
-      LEFT: 'left'
-    };
+      TOP: 'top'
+    }, _AttachmentMap[RTL ? 'LEFT' : 'RIGHT'] = 'right', _AttachmentMap.BOTTOM = 'bottom', _AttachmentMap[RTL ? 'RIGHT' : 'LEFT'] = 'left', _AttachmentMap);
     var Default = {
       animation: true,
       template: '<div class="tooltip" role="tooltip">' + '<div class="arrow"></div>' + '<div class="tooltip-inner"></div></div>',
@@ -627,7 +627,7 @@
 
         this._cleanTipClass();
 
-        this.addAttachmentClass(this._getAttachment(popperData.placement));
+        this.addAttachmentClass(this._getAttachment(AttachmentMap[popperData.placement.toUpperCase()]));
       };
 
       _proto._fixTransition = function _fixTransition() {

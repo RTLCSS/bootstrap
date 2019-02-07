@@ -83,9 +83,10 @@
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var CLASS_PREFIX = 'bs-popover';
     var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
+    var RTL = document.documentElement.dir === 'rtl';
 
     var Default = _objectSpread({}, Tooltip.Default, {
-      placement: 'right',
+      placement: RTL === 'rtl' ? 'left' : 'right',
       trigger: 'click',
       content: '',
       template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'

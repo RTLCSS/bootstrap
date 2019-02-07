@@ -155,10 +155,10 @@
   background-size: 100% 100%;
 }
 .carousel-control-prev-icon {
-  background-image: $carousel-control-prev-icon-bg;
+  background-image: $carousel-control-prev-icon-bg #{"/*!rtl:"+$carousel-control-next-icon-bg+"*/"};
 }
 .carousel-control-next-icon {
-  background-image: $carousel-control-next-icon-bg;
+  background-image: $carousel-control-next-icon-bg #{"/*!rtl:"+$carousel-control-prev-icon-bg+"*/"};
 }
 
 

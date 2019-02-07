@@ -22,10 +22,11 @@ const Popover = (($) => {
   const JQUERY_NO_CONFLICT  = $.fn[NAME]
   const CLASS_PREFIX        = 'bs-popover'
   const BSCLS_PREFIX_REGEX  = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
+  const RTL                 = document.documentElement.dir === 'rtl'
 
   const Default = {
     ...Tooltip.Default,
-    placement : 'right',
+    placement : RTL === 'rtl' ? 'left' : 'right',
     trigger   : 'click',
     content   : '',
     template  : '<div class="popover" role="tooltip">' +

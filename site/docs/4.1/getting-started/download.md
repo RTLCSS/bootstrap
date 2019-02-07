@@ -28,12 +28,12 @@ Should you require [build tools]({{ site.baseurl }}/docs/{{ site.docs_version }}
 
 <a href="{{ site.download.source }}" class="btn btn-bd-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
 
-## BootstrapCDN
+## RTLCSS CDN
 
-Skip the download with [BootstrapCDN](https://www.bootstrapcdn.com/) to deliver cached version of Bootstrap's compiled CSS and JS to your project.
+Skip the download with [RTLCSS CDN](https://rtlcss.com/cdn/css-frameworks/bootstrap/) to deliver cached version of Bootstrap's compiled CSS and JS to your project.
 
 {% highlight html %}
-<link rel="stylesheet" href="{{ site.cdn.css }}" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ site.cdn.rtlcss }}" integrity="{{ site.cdn.rtlcss_hash }}" crossorigin="anonymous">
 <script src="{{ site.cdn.js }}" integrity="{{ site.cdn.js_hash }}" crossorigin="anonymous"></script>
 {% endhighlight %}
 
