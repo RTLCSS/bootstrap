@@ -5,7 +5,7 @@
 .bd-clipboard {
   position: relative;
   display: none;
-  float: right;
+  float: right #{"/*!rtl:ignore*/"};
 
   + .highlight {
     margin-top: 0;
@@ -19,7 +19,7 @@
 .btn-clipboard {
   position: absolute;
   top: .5rem;
-  right: .5rem;
+  right: .5rem #{"/*!rtl:ignore*/"};
   z-index: 10;
   display: block;
   padding: .25rem .5rem;

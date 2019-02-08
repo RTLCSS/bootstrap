@@ -1,6 +1,6 @@
 /*!
   * Bootstrap dropdown.js v4.2.1 (https://getbootstrap.com/)
-  * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
@@ -63,6 +63,7 @@
     return target;
   }
 
+  var _AttachmentMap;
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -88,6 +89,7 @@
   var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
   var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
+  var RTL = document.documentElement.dir === 'rtl';
   var Event = {
     HIDE: "hide" + EVENT_KEY,
     HIDDEN: "hidden" + EVENT_KEY,
@@ -115,16 +117,7 @@
     NAVBAR_NAV: '.navbar-nav',
     VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
   };
-  var AttachmentMap = {
-    TOP: 'top-start',
-    TOPEND: 'top-end',
-    BOTTOM: 'bottom-start',
-    BOTTOMEND: 'bottom-end',
-    RIGHT: 'right-start',
-    RIGHTEND: 'right-end',
-    LEFT: 'left-start',
-    LEFTEND: 'left-end'
-  };
+  var AttachmentMap = (_AttachmentMap = {}, _AttachmentMap[RTL ? 'TOPEND' : 'TOP'] = 'top-start', _AttachmentMap[RTL ? 'TOP' : 'TOPEND'] = 'top-end', _AttachmentMap[RTL ? 'BOTTOMEND' : 'BOTTOM'] = 'bottom-start', _AttachmentMap[RTL ? 'BOTTOM' : 'BOTTOMEND'] = 'bottom-end', _AttachmentMap[RTL ? 'LEFT' : 'RIGHT'] = 'right-start', _AttachmentMap[RTL ? 'LEFTEND' : 'RIGHTEND'] = 'right-end', _AttachmentMap[RTL ? 'RIGHT' : 'LEFT'] = 'left-start', _AttachmentMap[RTL ? 'RIGHTEND' : 'LEFTEND'] = 'left-end', _AttachmentMap);
   var Default = {
     offset: 0,
     flip: true,
