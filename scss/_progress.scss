@@ -2,7 +2,7 @@
 @if $enable-transitions {
   @keyframes progress-bar-stripes {
     from { background-position: $progress-height 0; }
-    to { background-position: 0 0; }
+    to { background-position: 0 0 #{"/*!rtl:ignore*/"}; }
   }
 }
 
