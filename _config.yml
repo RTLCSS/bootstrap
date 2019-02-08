@@ -14,7 +14,7 @@ destination:    ./_gh_pages
 host:           "localhost"
 port:           9001
 baseurl:        ""
-url:            "https://getbootstrap.com"
+url:            "https://bootstrap.rtlcss.com"
 encoding:       UTF-8
 exclude:
   - docs/4.5/assets/scss/
@@ -28,9 +28,9 @@ redirect_from:
   json: false
 
 # Social
-title:              Bootstrap
-description:        "The most popular HTML, CSS, and JS library in the world."
-twitter:            getbootstrap
+title:              Bootstrap 4 RTL
+description:        "The most popular HTML, CSS, and JS library in the world made right-to-left."
+twitter:            rtlcss
 authors:            "Mark Otto, Jacob Thornton, and Bootstrap contributors"
 social_image_path:  /docs/4.5/assets/brand/bootstrap-social.png
 social_logo_path:   /docs/4.5/assets/brand/bootstrap-social-logo.png
@@ -39,8 +39,8 @@ social_logo_path:   /docs/4.5/assets/brand/bootstrap-social-logo.png
 current_version:      4.5.3
 current_ruby_version: 4.5.3
 docs_version:         4.5
-github_org:           "https://github.com/twbs"
-repo:                 "https://github.com/twbs/bootstrap"
+github_org:           "https://github.com/RTLCSS"
+repo:                 "https://github.com/RTLCSS/bootstrap"
 slack:                "https://bootstrap-slack.herokuapp.com"
 opencollective:       "https://opencollective.com/bootstrap"
 blog:                 "https://blog.getbootstrap.com"
@@ -49,18 +49,20 @@ themes:               "https://themes.getbootstrap.com"
 icons:                "https://icons.getbootstrap.com"
 
 download:
-  source:           "https://github.com/twbs/bootstrap/archive/v4.5.3.zip"
-  dist:             "https://github.com/twbs/bootstrap/releases/download/v4.5.3/bootstrap-4.5.3-dist.zip"
-  dist_examples:    "https://github.com/twbs/bootstrap/releases/download/v4.5.3/bootstrap-4.5.3-examples.zip"
+  source:           "https://github.com/RTLCSS/bootstrap/archive/v4.5.3.zip"
+  dist:             "https://github.com/RTLCSS/bootstrap/releases/download/v4.5.3/bootstrap-4.5.3-dist.zip"
+  dist_examples:    "https://github.com/RTLCSS/bootstrap/releases/download/v4.5.3/bootstrap-4.5.3-examples.zip"
 
 cdn:
   # See https://www.srihash.org for info on how to generate the hashes
+  rtlcss:           "https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css"
+  rtlcss_hash:      "sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe"
   css:              "https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/css/bootstrap.min.css"
   css_hash:         "sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-  js:               "https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.min.js"
-  js_hash:          "sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
-  js_bundle:        "https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.bundle.min.js"
-  js_bundle_hash:   "sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+  js:               "https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.min.js"
+  js_hash:          "sha384-VmD+lKnI0Y4FPvr6hvZRw6xvdt/QZoNHQ4h5k0RL30aGkR9ylHU56BzrE2UoohWK"
+  js_bundle:        "https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js"
+  js_bundle_hash:   "sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK"
   jquery:           "https://code.jquery.com/jquery-3.5.1.slim.min.js"
   jquery_hash:      "sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
   popper:           "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"

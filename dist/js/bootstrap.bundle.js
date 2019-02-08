@@ -594,9 +594,10 @@
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
   var JQUERY_NO_CONFLICT$2 = $__default['default'].fn[NAME$2];
-  var ARROW_LEFT_KEYCODE = 37; // KeyboardEvent.which value for left arrow key
+  var RTL = document.documentElement.dir === 'rtl';
+  var ARROW_LEFT_KEYCODE = RTL ? 39 : 37; // KeyboardEvent.which value for left arrow key
 
-  var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
+  var ARROW_RIGHT_KEYCODE = RTL ? 37 : 39; // KeyboardEvent.which value for right arrow key
 
   var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
@@ -793,12 +794,12 @@
       this.touchDeltaX = 0; // swipe left
 
       if (direction > 0) {
-        this.prev();
+        RTL ? this.next() : this.prev();
       } // swipe right
 
 
       if (direction < 0) {
-        this.next();
+        RTL ? this.prev() : this.next();
       }
     };
 
@@ -4158,6 +4159,7 @@
   var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
   var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
+  var RTL$1 = document.documentElement.dir === 'rtl';
   var EVENT_HIDE$1 = "hide" + EVENT_KEY$4;
   var EVENT_HIDDEN$1 = "hidden" + EVENT_KEY$4;
   var EVENT_SHOW$1 = "show" + EVENT_KEY$4;
@@ -4178,12 +4180,12 @@
   var SELECTOR_MENU = '.dropdown-menu';
   var SELECTOR_NAVBAR_NAV = '.navbar-nav';
   var SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)';
-  var PLACEMENT_TOP = 'top-start';
-  var PLACEMENT_TOPEND = 'top-end';
-  var PLACEMENT_BOTTOM = 'bottom-start';
-  var PLACEMENT_BOTTOMEND = 'bottom-end';
-  var PLACEMENT_RIGHT = 'right-start';
-  var PLACEMENT_LEFT = 'left-start';
+  var PLACEMENT_TOP = RTL$1 ? 'top-end' : 'top-start';
+  var PLACEMENT_TOPEND = RTL$1 ? 'top-start' : 'top-end';
+  var PLACEMENT_BOTTOM = RTL$1 ? 'bottom-end' : 'bottom-start';
+  var PLACEMENT_BOTTOMEND = RTL$1 ? 'bottom-start' : 'bottom-end';
+  var PLACEMENT_RIGHT = RTL$1 ? 'left-start' : 'right-start';
+  var PLACEMENT_LEFT = RTL$1 ? 'right-start' : 'left-start';
   var Default$2 = {
     offset: 0,
     flip: true,
@@ -5383,6 +5385,7 @@
     return createdDocument.body.innerHTML;
   }
 
+  var _AttachmentMap;
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -5397,6 +5400,7 @@
   var CLASS_PREFIX = 'bs-tooltip';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
+  var RTL$2 = document.documentElement.dir === 'rtl';
   var DefaultType$4 = {
     animation: 'boolean',
     template: 'string',
@@ -5415,13 +5419,10 @@
     whiteList: 'object',
     popperConfig: '(null|object)'
   };
-  var AttachmentMap = {
+  var AttachmentMap = (_AttachmentMap = {
     AUTO: 'auto',
-    TOP: 'top',
-    RIGHT: 'right',
-    BOTTOM: 'bottom',
-    LEFT: 'left'
-  };
+    TOP: 'top'
+  }, _AttachmentMap[RTL$2 ? 'LEFT' : 'RIGHT'] = 'right', _AttachmentMap.BOTTOM = 'bottom', _AttachmentMap[RTL$2 ? 'RIGHT' : 'LEFT'] = 'left', _AttachmentMap);
   var Default$4 = {
     animation: true,
     template: '<div class="tooltip" role="tooltip">' + '<div class="arrow"></div>' + '<div class="tooltip-inner"></div></div>',
@@ -5997,7 +5998,7 @@
 
       this._cleanTipClass();
 
-      this.addAttachmentClass(this._getAttachment(popperData.placement));
+      this.addAttachmentClass(this._getAttachment(AttachmentMap[popperData.placement.toUpperCase()]));
     };
 
     _proto._fixTransition = function _fixTransition() {

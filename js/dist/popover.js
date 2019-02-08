@@ -5,7 +5,7 @@
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery'), require('./tooltip.js')) :
-  typeof define === 'function' && define.amd ? define(['jquery', './tooltip.js'], factory) :
+  typeof define === 'function' && define.amd ? define(['jquery', './tooltip'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Popover = factory(global.jQuery, global.Tooltip));
 }(this, (function ($, Tooltip) { 'use strict';
 

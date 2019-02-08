@@ -5,7 +5,7 @@
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery'), require('./util.js')) :
-  typeof define === 'function' && define.amd ? define(['jquery', './util.js'], factory) :
+  typeof define === 'function' && define.amd ? define(['jquery', './util'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Carousel = factory(global.jQuery, global.Util));
 }(this, (function ($, Util) { 'use strict';
 
@@ -31,9 +31,10 @@
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var JQUERY_NO_CONFLICT = $__default['default'].fn[NAME];
-  var ARROW_LEFT_KEYCODE = 37; // KeyboardEvent.which value for left arrow key
+  var RTL = document.documentElement.dir === 'rtl';
+  var ARROW_LEFT_KEYCODE = RTL ? 39 : 37; // KeyboardEvent.which value for left arrow key
 
-  var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
+  var ARROW_RIGHT_KEYCODE = RTL ? 37 : 39; // KeyboardEvent.which value for right arrow key
 
   var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
@@ -230,12 +231,12 @@
       this.touchDeltaX = 0; // swipe left
 
       if (direction > 0) {
-        this.prev();
+        RTL ? this.next() : this.prev();
       } // swipe right
 
 
       if (direction < 0) {
-        this.next();
+        RTL ? this.prev() : this.next();
       }
     };
 

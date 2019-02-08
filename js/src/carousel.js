@@ -20,8 +20,9 @@ const DATA_KEY = 'bs.carousel'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const JQUERY_NO_CONFLICT = $.fn[NAME]
-const ARROW_LEFT_KEYCODE = 37 // KeyboardEvent.which value for left arrow key
-const ARROW_RIGHT_KEYCODE = 39 // KeyboardEvent.which value for right arrow key
+const RTL = document.documentElement.dir === 'rtl'
+const ARROW_LEFT_KEYCODE = RTL ? 39 : 37 // KeyboardEvent.which value for left arrow key
+const ARROW_RIGHT_KEYCODE = RTL ? 37 : 39 // KeyboardEvent.which value for right arrow key
 const TOUCHEVENT_COMPAT_WAIT = 500 // Time for mouse compat events to fire after touch
 const SWIPE_THRESHOLD = 40
 
@@ -241,12 +242,12 @@ class Carousel {
 
     // swipe left
     if (direction > 0) {
-      this.prev()
+      RTL ? this.next() : this.prev()
     }
 
     // swipe right
     if (direction < 0) {
-      this.next()
+      RTL ? this.prev() : this.next()
     }
   }
 

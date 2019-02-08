@@ -5,7 +5,7 @@
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery'), require('popper.js'), require('./util.js')) :
-  typeof define === 'function' && define.amd ? define(['jquery', 'popper.js', './util.js'], factory) :
+  typeof define === 'function' && define.amd ? define(['jquery', 'popper.js', './util'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Tooltip = factory(global.jQuery, global.Popper, global.Util));
 }(this, (function ($, Popper, Util) { 'use strict';
 
@@ -136,6 +136,8 @@
     return createdDocument.body.innerHTML;
   }
 
+  var _AttachmentMap;
+
   function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -155,6 +157,7 @@
   var CLASS_PREFIX = 'bs-tooltip';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
+  var RTL = document.documentElement.dir === 'rtl';
   var DefaultType = {
     animation: 'boolean',
     template: 'string',
@@ -173,13 +176,10 @@
     whiteList: 'object',
     popperConfig: '(null|object)'
   };
-  var AttachmentMap = {
+  var AttachmentMap = (_AttachmentMap = {
     AUTO: 'auto',
-    TOP: 'top',
-    RIGHT: 'right',
-    BOTTOM: 'bottom',
-    LEFT: 'left'
-  };
+    TOP: 'top'
+  }, _AttachmentMap[RTL ? 'LEFT' : 'RIGHT'] = 'right', _AttachmentMap.BOTTOM = 'bottom', _AttachmentMap[RTL ? 'RIGHT' : 'LEFT'] = 'left', _AttachmentMap);
   var Default = {
     animation: true,
     template: '<div class="tooltip" role="tooltip">' + '<div class="arrow"></div>' + '<div class="tooltip-inner"></div></div>',
@@ -755,7 +755,7 @@
 
       this._cleanTipClass();
 
-      this.addAttachmentClass(this._getAttachment(popperData.placement));
+      this.addAttachmentClass(this._getAttachment(AttachmentMap[popperData.placement.toUpperCase()]));
     };
 
     _proto._fixTransition = function _fixTransition() {

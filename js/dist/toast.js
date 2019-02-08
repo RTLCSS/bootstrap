@@ -5,7 +5,7 @@
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery'), require('./util.js')) :
-  typeof define === 'function' && define.amd ? define(['jquery', './util.js'], factory) :
+  typeof define === 'function' && define.amd ? define(['jquery', './util'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Toast = factory(global.jQuery, global.Util));
 }(this, (function ($, Util) { 'use strict';
 

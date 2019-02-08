@@ -21,7 +21,7 @@ Looking to quickly add Bootstrap to your project? Use BootstrapCDN, provided for
 Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
 
 {% highlight html %}
-<link rel="stylesheet" href="{{ site.cdn.css }}" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ site.cdn.rtlcss }}" integrity="{{ site.cdn.rtlcss_hash }}" crossorigin="anonymous">
 {% endhighlight %}
 
 ### JS

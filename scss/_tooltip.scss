@@ -47,14 +47,14 @@
   padding: 0 $tooltip-arrow-height;
 
   .arrow {
-    left: 0;
+    left: 0 #{"/*!rtl:ignore*/"};
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
 
     &::before {
-      right: 0;
-      border-width: ($tooltip-arrow-width / 2) $tooltip-arrow-height ($tooltip-arrow-width / 2) 0;
-      border-right-color: $tooltip-arrow-color;
+      right: 0 #{"/*!rtl:ignore*/"};
+      border-width: ($tooltip-arrow-width / 2) $tooltip-arrow-height ($tooltip-arrow-width / 2) 0 #{"/*!rtl:ignore*/"};
+      border-right-color: $tooltip-arrow-color #{"/*!rtl:ignore*/"};
     }
   }
 }
@@ -77,14 +77,14 @@
   padding: 0 $tooltip-arrow-height;
 
   .arrow {
-    right: 0;
+    right: 0 #{"/*!rtl:ignore*/"};
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
 
     &::before {
-      left: 0;
-      border-width: ($tooltip-arrow-width / 2) 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
-      border-left-color: $tooltip-arrow-color;
+      left: 0 #{"/*!rtl:ignore*/"};
+      border-width: ($tooltip-arrow-width / 2) 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height #{"/*!rtl:ignore*/"};
+      border-left-color: $tooltip-arrow-color #{"/*!rtl:ignore*/"};
     }
   }
 }

@@ -28,6 +28,7 @@ const ARROW_UP_KEYCODE = 38 // KeyboardEvent.which value for up arrow key
 const ARROW_DOWN_KEYCODE = 40 // KeyboardEvent.which value for down arrow key
 const RIGHT_MOUSE_BUTTON_WHICH = 3 // MouseEvent.which value for the right button (assuming a right-handed mouse)
 const REGEXP_KEYDOWN = new RegExp(`${ARROW_UP_KEYCODE}|${ARROW_DOWN_KEYCODE}|${ESCAPE_KEYCODE}`)
+const RTL = document.documentElement.dir === 'rtl'
 
 const EVENT_HIDE = `hide${EVENT_KEY}`
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`
@@ -52,12 +53,12 @@ const SELECTOR_MENU = '.dropdown-menu'
 const SELECTOR_NAVBAR_NAV = '.navbar-nav'
 const SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
 
-const PLACEMENT_TOP = 'top-start'
-const PLACEMENT_TOPEND = 'top-end'
-const PLACEMENT_BOTTOM = 'bottom-start'
-const PLACEMENT_BOTTOMEND = 'bottom-end'
-const PLACEMENT_RIGHT = 'right-start'
-const PLACEMENT_LEFT = 'left-start'
+const PLACEMENT_TOP = RTL ? 'top-end' : 'top-start'
+const PLACEMENT_TOPEND = RTL ? 'top-start' : 'top-end'
+const PLACEMENT_BOTTOM = RTL ? 'bottom-end' : 'bottom-start'
+const PLACEMENT_BOTTOMEND = RTL ? 'bottom-start' : 'bottom-end'
+const PLACEMENT_RIGHT = RTL ? 'left-start' : 'right-start'
+const PLACEMENT_LEFT = RTL ? 'right-start' : 'left-start'
 
 const Default = {
   offset: 0,

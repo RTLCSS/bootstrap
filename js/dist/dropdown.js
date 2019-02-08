@@ -5,7 +5,7 @@
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery'), require('popper.js'), require('./util.js')) :
-  typeof define === 'function' && define.amd ? define(['jquery', 'popper.js', './util.js'], factory) :
+  typeof define === 'function' && define.amd ? define(['jquery', 'popper.js', './util'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Dropdown = factory(global.jQuery, global.Popper, global.Util));
 }(this, (function ($, Popper, Util) { 'use strict';
 
@@ -45,6 +45,7 @@
   var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
   var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
+  var RTL = document.documentElement.dir === 'rtl';
   var EVENT_HIDE = "hide" + EVENT_KEY;
   var EVENT_HIDDEN = "hidden" + EVENT_KEY;
   var EVENT_SHOW = "show" + EVENT_KEY;
@@ -65,12 +66,12 @@
   var SELECTOR_MENU = '.dropdown-menu';
   var SELECTOR_NAVBAR_NAV = '.navbar-nav';
   var SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)';
-  var PLACEMENT_TOP = 'top-start';
-  var PLACEMENT_TOPEND = 'top-end';
-  var PLACEMENT_BOTTOM = 'bottom-start';
-  var PLACEMENT_BOTTOMEND = 'bottom-end';
-  var PLACEMENT_RIGHT = 'right-start';
-  var PLACEMENT_LEFT = 'left-start';
+  var PLACEMENT_TOP = RTL ? 'top-end' : 'top-start';
+  var PLACEMENT_TOPEND = RTL ? 'top-start' : 'top-end';
+  var PLACEMENT_BOTTOM = RTL ? 'bottom-end' : 'bottom-start';
+  var PLACEMENT_BOTTOMEND = RTL ? 'bottom-start' : 'bottom-end';
+  var PLACEMENT_RIGHT = RTL ? 'left-start' : 'right-start';
+  var PLACEMENT_LEFT = RTL ? 'right-start' : 'left-start';
   var Default = {
     offset: 0,
     flip: true,
