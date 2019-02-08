@@ -1,8 +1,8 @@
 <!-- Bootstrap core CSS -->
 {%- if jekyll.environment == "production" %}
-<link href="{{ site.baseurl }}/docs/{{ site.docs_version }}/dist/css/bootstrap.min.css" rel="stylesheet" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+<link href="{{ site.baseurl }}/docs/{{ site.docs_version }}/dist/css/rtl/bootstrap.min.css" rel="stylesheet" integrity="{{ site.cdn.rtlcss_hash }}" crossorigin="anonymous">
 {% else %}
-<link href="{{ site.baseurl }}/docs/{{ site.docs_version }}/dist/css/bootstrap.css" rel="stylesheet">
+<link href="{{ site.baseurl }}/docs/{{ site.docs_version }}/dist/css/rtl/bootstrap.css" rel="stylesheet">
 {% endif -%}
 
 {%- if page.layout == "docs" or page.layout != "examples" -%}
