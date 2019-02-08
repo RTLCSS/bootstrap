@@ -1,6 +1,6 @@
 /*!
   * Bootstrap v4.4.1 (https://getbootstrap.com/)
-  * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
@@ -631,9 +631,10 @@
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
   var JQUERY_NO_CONFLICT$2 = $.fn[NAME$2];
-  var ARROW_LEFT_KEYCODE = 37; // KeyboardEvent.which value for left arrow key
+  var RTL = document.documentElement.dir === 'rtl';
+  var ARROW_LEFT_KEYCODE = RTL ? 39 : 37; // KeyboardEvent.which value for left arrow key
 
-  var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
+  var ARROW_RIGHT_KEYCODE = RTL ? 37 : 39; // KeyboardEvent.which value for right arrow key
 
   var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
@@ -4190,6 +4191,7 @@
   Popper.placements = placements;
   Popper.Defaults = Defaults;
 
+  var _AttachmentMap;
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -4215,6 +4217,7 @@
   var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
   var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
+  var RTL$1 = document.documentElement.dir === 'rtl';
   var Event$4 = {
     HIDE: "hide" + EVENT_KEY$4,
     HIDDEN: "hidden" + EVENT_KEY$4,
@@ -4242,16 +4245,7 @@
     NAVBAR_NAV: '.navbar-nav',
     VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
   };
-  var AttachmentMap = {
-    TOP: 'top-start',
-    TOPEND: 'top-end',
-    BOTTOM: 'bottom-start',
-    BOTTOMEND: 'bottom-end',
-    RIGHT: 'right-start',
-    RIGHTEND: 'right-end',
-    LEFT: 'left-start',
-    LEFTEND: 'left-end'
-  };
+  var AttachmentMap = (_AttachmentMap = {}, _AttachmentMap[RTL$1 ? 'TOPEND' : 'TOP'] = 'top-start', _AttachmentMap[RTL$1 ? 'TOP' : 'TOPEND'] = 'top-end', _AttachmentMap[RTL$1 ? 'BOTTOMEND' : 'BOTTOM'] = 'bottom-start', _AttachmentMap[RTL$1 ? 'BOTTOM' : 'BOTTOMEND'] = 'bottom-end', _AttachmentMap[RTL$1 ? 'LEFT' : 'RIGHT'] = 'right-start', _AttachmentMap[RTL$1 ? 'LEFTEND' : 'RIGHTEND'] = 'right-end', _AttachmentMap[RTL$1 ? 'RIGHT' : 'LEFT'] = 'left-start', _AttachmentMap[RTL$1 ? 'RIGHTEND' : 'LEFTEND'] = 'left-end', _AttachmentMap);
   var Default$2 = {
     offset: 0,
     flip: true,
@@ -5445,6 +5439,7 @@
     return createdDocument.body.innerHTML;
   }
 
+  var _AttachmentMap$1;
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -5459,6 +5454,7 @@
   var CLASS_PREFIX = 'bs-tooltip';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
+  var RTL$2 = document.documentElement.dir === 'rtl';
   var DefaultType$4 = {
     animation: 'boolean',
     template: 'string',
@@ -5477,13 +5473,10 @@
     whiteList: 'object',
     popperConfig: '(null|object)'
   };
-  var AttachmentMap$1 = {
+  var AttachmentMap$1 = (_AttachmentMap$1 = {
     AUTO: 'auto',
-    TOP: 'top',
-    RIGHT: 'right',
-    BOTTOM: 'bottom',
-    LEFT: 'left'
-  };
+    TOP: 'top'
+  }, _AttachmentMap$1[RTL$2 ? 'LEFT' : 'RIGHT'] = 'right', _AttachmentMap$1.BOTTOM = 'bottom', _AttachmentMap$1[RTL$2 ? 'RIGHT' : 'LEFT'] = 'left', _AttachmentMap$1);
   var Default$4 = {
     animation: true,
     template: '<div class="tooltip" role="tooltip">' + '<div class="arrow"></div>' + '<div class="tooltip-inner"></div></div>',
@@ -6071,7 +6064,7 @@
 
       this._cleanTipClass();
 
-      this.addAttachmentClass(this._getAttachment(popperData.placement));
+      this.addAttachmentClass(this._getAttachment(AttachmentMap$1[popperData.placement.toUpperCase()]));
     };
 
     _proto._fixTransition = function _fixTransition() {
