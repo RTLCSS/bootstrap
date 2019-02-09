@@ -709,7 +709,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "docs/4.1/getting-started/introduction/index.html",
-    "revision": "23bdc3548808c8f3a0f759c0b90a44fc"
+    "revision": "e6f1e33ed35ed63aa4153bc39c7feb30"
   },
   {
     "url": "docs/4.1/getting-started/javascript/index.html",
