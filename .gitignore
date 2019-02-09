@@ -1,8 +1,8 @@
 # Ignore docs files
 _gh_pages
-site
+/site
 .ruby-version
-vendor
+/vendor
 .bundle
 
 # Numerous always-ignore extensions
