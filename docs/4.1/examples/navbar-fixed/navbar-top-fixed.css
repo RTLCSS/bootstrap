@@ -1,0 +1,6 @@
+/* Show it is fixed to the top */
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdmJhci10b3AtZml4ZWQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGlDQUFpQztBQUNqQztFQUNFLGtCQUFrQjtFQUNsQixvQkFBb0I7Q0FDckIiLCJmaWxlIjoibmF2YmFyLXRvcC1maXhlZC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBTaG93IGl0IGlzIGZpeGVkIHRvIHRoZSB0b3AgKi9cbmJvZHkge1xuICBtaW4taGVpZ2h0OiA3NXJlbTtcbiAgcGFkZGluZy10b3A6IDQuNXJlbTtcbn1cbiJdfQ== */
