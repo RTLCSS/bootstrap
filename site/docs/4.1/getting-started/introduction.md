@@ -13,14 +13,14 @@ toc: true
 
 ## Quick start
 
-Looking to quickly add Bootstrap to your project? Use BootstrapCDN, provided for free by the folks at StackPath. Using a package manager or need to download the source files? [Head to the downloads page.]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download/)
+Looking to quickly add Bootstrap to your project? Use RTLCSS CDN, provided for free. Need to download the source files? [Head to the downloads page.]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download/)
 
 ### CSS
 
 Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
 
 {% highlight html %}
-<link rel="stylesheet" href="{{ site.cdn.css }}" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ site.cdn.rtlcss }}" integrity="{{ site.cdn.rtlcss_hash }}" crossorigin="anonymous">
 {% endhighlight %}
 
 ### JS
@@ -68,7 +68,7 @@ Be sure to have your pages set up with the latest design and development standar
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ site.cdn.css }}" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ site.cdn.rtlcss }}" integrity="{{ site.cdn.rtlcss_hash }}" crossorigin="anonymous">
 
     <title>Hello, world!</title>
   </head>
